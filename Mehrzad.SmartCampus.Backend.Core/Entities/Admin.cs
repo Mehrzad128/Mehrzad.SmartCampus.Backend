@@ -8,6 +8,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
     public class Admin : Entity
     {
+        public required string Password { get; set; }
         public string? Name { get; set; }
         public required string Email { get; set; }
     }

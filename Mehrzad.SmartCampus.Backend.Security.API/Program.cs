@@ -34,7 +34,7 @@ app.MapPost("/adminlogin", (SmartCampusDB db, AdminLoginDTO adminLogin) =>
 {
     if (!db.Admins.Any())
     {
-        var firstAdmin = new Admin() { Email = "admin@gmail.com", Name = "admin" };
+        var firstAdmin = new Admin() { Email = "admin@gmail.com", Name = "admin" , Password= "nimda" };
         db.Admins.Add(firstAdmin);
         db.SaveChanges();
     }
