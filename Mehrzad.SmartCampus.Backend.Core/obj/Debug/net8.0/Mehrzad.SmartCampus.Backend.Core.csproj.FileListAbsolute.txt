@@ -1,0 +1,11 @@
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\bin\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.deps.json
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\bin\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\bin\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.pdb
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.AssemblyInfoInputs.cache
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.AssemblyInfo.cs
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.csproj.CoreCompileInputs.cache
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\refint\Mehrzad.SmartCampus.Backend.Core.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.pdb
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\ref\Mehrzad.SmartCampus.Backend.Core.dll

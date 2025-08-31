@@ -1,0 +1,8 @@
+﻿namespace Mehrzad.SmartCampus.Backend.Security.API.Models
+{
+    public class AdminLoginDTO
+    {
+        public string? Email { get; set; }
+        public string? Name { get; set; }
+    }
+}

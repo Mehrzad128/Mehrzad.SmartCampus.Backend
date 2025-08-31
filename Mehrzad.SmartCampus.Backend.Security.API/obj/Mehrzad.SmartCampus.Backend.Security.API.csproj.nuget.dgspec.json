@@ -1,0 +1,206 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Security.API\\Mehrzad.SmartCampus.Backend.Security.API.csproj": {}
+  },
+  "projects": {
+    "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\Mehrzad.SmartCampus.Backend.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\Mehrzad.SmartCampus.Backend.Core.csproj",
+        "projectName": "Mehrzad.SmartCampus.Backend.Core",
+        "projectPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\Mehrzad.SmartCampus.Backend.Core.csproj",
+        "packagesPath": "C:\\Users\\AsusIran\\.nuget\\packages\\",
+        "outputPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AsusIran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\Mehrzad.SmartCampus.Backend.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\Mehrzad.SmartCampus.Backend.Infrastructure.csproj",
+        "projectName": "Mehrzad.SmartCampus.Backend.Infrastructure",
+        "projectPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\Mehrzad.SmartCampus.Backend.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\AsusIran\\.nuget\\packages\\",
+        "outputPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AsusIran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\Mehrzad.SmartCampus.Backend.Core.csproj": {
+                "projectPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Core\\Mehrzad.SmartCampus.Backend.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Security.API\\Mehrzad.SmartCampus.Backend.Security.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Security.API\\Mehrzad.SmartCampus.Backend.Security.API.csproj",
+        "projectName": "Mehrzad.SmartCampus.Backend.Security.API",
+        "projectPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Security.API\\Mehrzad.SmartCampus.Backend.Security.API.csproj",
+        "packagesPath": "C:\\Users\\AsusIran\\.nuget\\packages\\",
+        "outputPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Security.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AsusIran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\Mehrzad.SmartCampus.Backend.Infrastructure.csproj": {
+                "projectPath": "F:\\mehrzad programing files\\Fullstack\\Mehrzad.SmartCampus\\Mehrzad.SmartCampus.Backend\\Mehrzad.SmartCampus.Backend.Infrastructure\\Mehrzad.SmartCampus.Backend.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
