@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 builder.Services.AddDbContext<SmartCampusDB>(option =>
 {
-    option.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SmartCampusDB;Trusted_Connection=True");
+    option.UseSqlServer(builder.Configuration.GetConnectionString("MainDB"));
 });
 
 var app = builder.Build();
