@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mehrzad.SmartCampus.Backend.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,18 @@ using System.Threading.Tasks;
 
 namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
-    public class Booking : Entity
+    public class Booking
     {
-        public required Room Room { get; set; }
-        public required Faculty Faculty { get; set; }
-        public DateTime Date { get; set; } = DateTime.Now;
-        //Change it to enum array of available time slots
-        public required string TimeSlot { get; set; }
+        public Guid BookingId { get; set; } = Guid.NewGuid();
+        public DateTime Date { get; set; }
+        public required string TimeSlot { get; set; } 
+        public required Status Status { get; set; } // Pending, Approved, Rejected
+
+        // Foreign Keys
+        public Guid RoomId { get; set; }
+        public Room Room { get; set; } = null!;
+
+        public Guid FacultyId { get; set; }
+        public Faculty Faculty { get; set; } = null!;
     }
 }

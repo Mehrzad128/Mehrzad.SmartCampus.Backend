@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mehrzad.SmartCampus.Backend.Core.Entities
+namespace Mehrzad.SmartCampus.Backend.Core.Enums
 {
-    public class Entity
+    public enum UserRole
     {
-        public Guid ID { get; set; } = new Guid();
+        Student ,
+        Faculty , 
+        Admin
     }
 }

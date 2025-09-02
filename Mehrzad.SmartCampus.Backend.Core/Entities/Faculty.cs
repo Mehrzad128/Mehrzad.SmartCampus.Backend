@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
-    public class Faculty : Entity
+    public class Faculty
     {
-        public required string Name { get; set; }
-        public required string Password { get; set; }
-        public required string Email { get; set; }
-        public required string Department { get; set; }
+        public Guid FacultyId { get; set; } = Guid.NewGuid();
+        public required string Department { get; set; } 
+
+        // Foreign Key
+        public Guid UserId { get; set; }
+        public User User { get; set; } = null!;
+
+        // Navigation
+        public ICollection<Course> Courses { get; set; } = new List<Course>();
+        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+        public ICollection<Event> EventsOrganized { get; set; } = new List<Event>();
     }
 }

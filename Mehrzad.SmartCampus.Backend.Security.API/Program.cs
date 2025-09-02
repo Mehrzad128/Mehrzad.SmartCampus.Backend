@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 
@@ -49,6 +50,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("FacultyOnly", policy => policy.RequireRole("Faculty"));
+    options.AddPolicy("StudentOnly", policy => policy.RequireRole("Student"));
 });
 
 //---------------------------------------------------------------------------------------------------------
@@ -69,55 +72,52 @@ app.UseAuthorization();
 
 //---------------------------------------------------------------------------------------------------------
 
-app.MapPost ("/adminlogin", (SmartCampusDB db, AdminLoginDTO adminLogin) =>
+app.MapPost ("/login", (SmartCampusDB db, LoginDTO login) =>
 {
-    if (!db.Admins.Any())
-    {
-        var firstAdmin = new Admin() { Email = "admin@gmail.com", Name = "admin" , Password= "nimda" };
-        db.Admins.Add(firstAdmin);
-        db.SaveChanges();
-    }
-    var result = db.Admins.Where(m => m.Email == adminLogin.Email && m.Name == adminLogin.Name).FirstOrDefault();
+    var result = db.Users.Where(u => u.Email == login.Email && u.Password == login.Password).FirstOrDefault();
     if (result != null)
     {
-        var claims = new[]
-{
-        new Claim(JwtRegisteredClaimNames.Sub , adminLogin.Email ?? ""),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim(ClaimTypes.Role, "Admin")
-};
-
+        var claims = new[] 
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, login.Email ?? ""),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(ClaimTypes.Role, result.Role.ToString())
+        };
+     
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? ""));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: builder.Configuration["Jwt:Issuer"] ,
-            audience: builder.Configuration["Jwt:Audience"] ,
+            issuer: builder.Configuration["Jwt:Issuer"],
+            audience: builder.Configuration["Jwt:Audience"],
             claims: claims,
             expires: DateTime.UtcNow.AddDays(3),
             signingCredentials: creds
         );
-
-
         return new
         {
             isOK = true,
-            message = "Welcome",
+            message = $"Welcome {result.Name} with role : {result.Role}",
             Token = new JwtSecurityTokenHandler().WriteToken(token)
-
-    };
+        };
     }
     return new
     {
         isOK = false,
         message = "Access denied",
         Token = ""
-    };
+    };  
 });
 
 app.MapGet("/adminList", (SmartCampusDB db) =>
 {
-    return db.Admins.ToList();
+    return db.Users.Where(u=> u.Role.ToString()=="Admin").ToList();
+})
+    .RequireAuthorization("AdminOnly");
+
+app.MapGet("/studentList", (SmartCampusDB db) =>
+{
+    return db.Users.Where(u => u.Role.ToString() == "Student").ToList();
 })
     .RequireAuthorization("AdminOnly");
 

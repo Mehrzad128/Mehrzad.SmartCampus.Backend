@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
-    public class Enrollment : Entity
+    public class Enrollment
     {
+        public Guid EnrollmentId { get; set; } = Guid.NewGuid();
+        public DateTime EnrollmentDate { get; set; } = DateTime.Now;
+
+        // Foreign Keys
+        public Guid StudentId { get; set; }
         public required Student Student { get; set; }
-        public required Course Course { get; set; }
-        public DateTime EnrolmentDate { get; set; } = DateTime.Now ;
+
+        public Guid CourseId { get; set; }
+        public required Course Course { get; set; } 
     }
 }

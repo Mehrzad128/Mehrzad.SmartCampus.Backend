@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
-    public class Attendance : Entity
+    public class Attendance
     {
-        public required Student Student { get; set; }
-        public required Course Course { get; set; }
-        public required DateTime Date { get; set; }
-        public Status Status { get; set; }
+        public Guid AttendanceId { get; set; } = Guid.NewGuid();
+        public DateTime Date { get; set; }
+        public string Status { get; set; } = null!; // Present, Absent, Late
+
+        // Foreign Keys
+        public Guid StudentId { get; set; }
+        public required Student Student { get; set; } 
+
+        public required Guid CourseId { get; set; }
+        public required Course Course { get; set; } 
     }
 }

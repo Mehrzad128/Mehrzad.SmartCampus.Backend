@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
-    public class Room : Entity
+    public class Room
     {
-        public string? Name { get; set; }
-        public int? Capacity { get; set; }
-        public RoomType Type { get; set; }
+        public Guid RoomId { get; set; } = Guid.NewGuid();
+        public required string Name { get; set; } 
+        public int Capacity { get; set; }
+        public RoomType Type { get; set; }  // Classroom, Lab, Auditorium
+
+        // Navigation
+        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 }

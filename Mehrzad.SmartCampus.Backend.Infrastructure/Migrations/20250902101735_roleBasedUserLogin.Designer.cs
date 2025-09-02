@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
 {
     [DbContext(typeof(SmartCampusDB))]
-    [Migration("20250831111200_init")]
-    partial class init
+    [Migration("20250902101735_roleBasedUserLogin")]
+    partial class roleBasedUserLogin
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,134 +25,118 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Admin", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Admins");
-                });
-
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Attendance", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("AttendanceId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CourseID")
+                    b.Property<Guid>("CourseId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("StudentID")
+                    b.Property<Guid>("StudentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ID");
+                    b.HasKey("AttendanceId");
 
-                    b.HasIndex("CourseID");
+                    b.HasIndex("CourseId");
 
-                    b.HasIndex("StudentID");
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Attendances");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Booking", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("BookingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("FacultyID")
+                    b.Property<Guid>("FacultyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoomID")
+                    b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("TimeSlot")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("BookingId");
 
-                    b.HasIndex("FacultyID");
+                    b.HasIndex("FacultyId");
 
-                    b.HasIndex("RoomID");
+                    b.HasIndex("RoomId");
 
                     b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Course", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("CourseId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Credits")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Credits")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("FacultyID")
+                    b.Property<Guid>("FacultyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("CourseId");
 
-                    b.HasIndex("FacultyID");
+                    b.HasIndex("FacultyId");
 
                     b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Enrollment", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("EnrollmentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CourseID")
+                    b.Property<Guid>("CourseId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("EnrolmentDate")
+                    b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("StudentID")
+                    b.Property<Guid>("StudentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ID");
+                    b.HasKey("EnrollmentId");
 
-                    b.HasIndex("CourseID");
+                    b.HasIndex("CourseId");
 
-                    b.HasIndex("StudentID");
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Enrollments");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Event", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("EventId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -162,23 +146,23 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("OrganizerID")
+                    b.Property<Guid>("OrganizerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("EventId");
 
-                    b.HasIndex("OrganizerID");
+                    b.HasIndex("OrganizerId");
 
                     b.ToTable("Events");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("FacultyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -186,72 +170,98 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("FacultyId");
 
-                    b.HasKey("ID");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Faculties");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Room", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("RoomId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Capacity")
+                    b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("RoomId");
 
                     b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Student", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("StudentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EnrollmentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("StudentId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.User", b =>
+                {
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("InrolmentDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Students");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Attendance", b =>
                 {
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseID")
+                        .WithMany("Attendances")
+                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentID")
+                        .WithMany("Attendances")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -263,14 +273,14 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Booking", b =>
                 {
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", "Faculty")
-                        .WithMany()
-                        .HasForeignKey("FacultyID")
+                        .WithMany("Bookings")
+                        .HasForeignKey("FacultyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomID")
+                        .WithMany("Bookings")
+                        .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -282,8 +292,8 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Course", b =>
                 {
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", "Faculty")
-                        .WithMany()
-                        .HasForeignKey("FacultyID")
+                        .WithMany("Courses")
+                        .HasForeignKey("FacultyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -293,14 +303,14 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Enrollment", b =>
                 {
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseID")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentID")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -312,12 +322,69 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Event", b =>
                 {
                     b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", "Organizer")
-                        .WithMany()
-                        .HasForeignKey("OrganizerID")
+                        .WithMany("EventsOrganized")
+                        .HasForeignKey("OrganizerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Organizer");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", b =>
+                {
+                    b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.User", "User")
+                        .WithOne("FacultyProfile")
+                        .HasForeignKey("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Student", b =>
+                {
+                    b.HasOne("Mehrzad.SmartCampus.Backend.Core.Entities.User", "User")
+                        .WithOne("StudentProfile")
+                        .HasForeignKey("Mehrzad.SmartCampus.Backend.Core.Entities.Student", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Course", b =>
+                {
+                    b.Navigation("Attendances");
+
+                    b.Navigation("Enrollments");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", b =>
+                {
+                    b.Navigation("Bookings");
+
+                    b.Navigation("Courses");
+
+                    b.Navigation("EventsOrganized");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Room", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Student", b =>
+                {
+                    b.Navigation("Attendances");
+
+                    b.Navigation("Enrollments");
+                });
+
+            modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.User", b =>
+                {
+                    b.Navigation("FacultyProfile");
+
+                    b.Navigation("StudentProfile");
                 });
 #pragma warning restore 612, 618
         }
