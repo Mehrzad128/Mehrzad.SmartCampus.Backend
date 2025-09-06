@@ -172,3 +172,5 @@ F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Ba
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Security.API\obj\Debug\net8.0\ref\Mehrzad.SmartCampus.Backend.Security.API.dll
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Security.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Security.API\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Security.API.csproj.CopyComplete
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Security.API\bin\Debug\net8.0\Mehrzad.SmartCampus.Backend.API.Infrastructure.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Security.API\bin\Debug\net8.0\Mehrzad.SmartCampus.Backend.API.Infrastructure.pdb

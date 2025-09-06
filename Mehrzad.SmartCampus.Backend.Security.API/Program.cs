@@ -1,76 +1,18 @@
-using Mehrzad.SmartCampus.Backend.Core.Entities;
+using Mehrzad.SmartCampus.Backend.API.Infrastructure;
 using Mehrzad.SmartCampus.Backend.Infrastructure.Database;
 using Mehrzad.SmartCampus.Backend.Security.API.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddCors(options =>
-    options.AddDefaultPolicy(builder =>
-        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
-
-builder.Services.AddDbContext<SmartCampusDB>(option =>
-{
-    option.UseSqlServer(builder.Configuration.GetConnectionString("MainDB"));
-});
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = false;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "")
-            )
-        };
-    });
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("FacultyOnly", policy => policy.RequireRole("Faculty"));
-    options.AddPolicy("StudentOnly", policy => policy.RequireRole("Student"));
-});
-
-//---------------------------------------------------------------------------------------------------------
-
+AppConfiguration.AddServices(builder);
 var app = builder.Build();
+AppConfiguration.UseServices(app);
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-app.UseCors();
-app.UseAuthentication();
-app.UseAuthorization();
-
-
-//---------------------------------------------------------------------------------------------------------
+//===============================================================================================
 
 app.MapPost ("/login", (SmartCampusDB db, LoginDTO login) =>
 {
@@ -113,14 +55,14 @@ app.MapGet("/adminList", (SmartCampusDB db) =>
 {
     return db.Users.Where(u=> u.Role.ToString()=="Admin").ToList();
 })
-    .RequireAuthorization("AdminOnly");
+    .RequireAuthorization("AdminAccessLevel");
 
 app.MapGet("/studentList", (SmartCampusDB db) =>
 {
     return db.Users.Where(u => u.Role.ToString() == "Student").ToList();
 })
-    .RequireAuthorization("AdminOnly");
+    .RequireAuthorization("FacultyAccessLevel");
 
-//---------------------------------------------------------------------------------------------------------
+//===============================================================================================
 
 app.Run();

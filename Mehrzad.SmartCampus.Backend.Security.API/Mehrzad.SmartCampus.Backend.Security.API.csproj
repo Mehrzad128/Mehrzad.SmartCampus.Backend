@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mehrzad.SmartCampus.Backend.API.Infrastructure\Mehrzad.SmartCampus.Backend.API.Infrastructure.csproj" />
     <ProjectReference Include="..\Mehrzad.SmartCampus.Backend.Infrastructure\Mehrzad.SmartCampus.Backend.Infrastructure.csproj" />
   </ItemGroup>
 
