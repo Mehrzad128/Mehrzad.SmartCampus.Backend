@@ -51,18 +51,6 @@ app.MapPost ("/login", (SmartCampusDB db, LoginDTO login) =>
     };  
 });
 
-app.MapGet("/adminList", (SmartCampusDB db) =>
-{
-    return db.Users.Where(u=> u.Role.ToString()=="Admin").ToList();
-})
-    .RequireAuthorization("AdminAccessLevel");
-
-app.MapGet("/studentList", (SmartCampusDB db) =>
-{
-    return db.Users.Where(u => u.Role.ToString() == "Student").ToList();
-})
-    .RequireAuthorization("FacultyAccessLevel");
-
 //===============================================================================================
 
 app.Run();

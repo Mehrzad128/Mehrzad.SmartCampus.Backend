@@ -1,0 +1,6 @@
+@Mehrzad.SmartCampus.Backend.Students.API_HostAddress = http://localhost:5031
+
+GET {{Mehrzad.SmartCampus.Backend.Students.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

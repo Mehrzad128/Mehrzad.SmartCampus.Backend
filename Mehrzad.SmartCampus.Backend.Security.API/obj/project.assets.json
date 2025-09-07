@@ -617,12 +617,10 @@
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
-          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
+          "build/_._": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
+          "buildMultiTargeting/_._": {}
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/9.0.8": {
@@ -1019,7 +1017,7 @@
           "Swashbuckle.AspNetCore.SwaggerUI": "6.6.2"
         },
         "build": {
-          "build/Swashbuckle.AspNetCore.props": {}
+          "build/_._": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/6.6.2": {
@@ -4933,8 +4931,7 @@
       "Mehrzad.SmartCampus.Backend.API.Infrastructure >= 1.0.0",
       "Mehrzad.SmartCampus.Backend.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.18",
-      "Microsoft.EntityFrameworkCore.Design >= 9.0.8",
-      "Swashbuckle.AspNetCore >= 6.6.2"
+      "Microsoft.EntityFrameworkCore.Design >= 9.0.8"
     ]
   },
   "packageFolders": {
@@ -4992,10 +4989,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.8, )"
-          },
-          "Swashbuckle.AspNetCore": {
-            "target": "Package",
-            "version": "[6.6.2, )"
           }
         },
         "imports": [

@@ -57,7 +57,8 @@ namespace Mehrzad.SmartCampus.Backend.API.Infrastructure
             {
                 options.AddPolicy("AdminAccessLevel", policy => policy.RequireRole("Admin"));
                 options.AddPolicy("FacultyAccessLevel", policy => policy.RequireRole("Faculty", "Admin"));
-                options.AddPolicy("StudentOnly", policy => policy.RequireRole("Student", "Admin"));
+                options.AddPolicy("StudentAccessLevel", policy => policy.RequireRole("Student", "Admin"));
+                options.AddPolicy("FreeAccessLevel", policy => policy.RequireRole("Student" , "Faculty" , "Admin"));
             });
         }
         public static void UseServices(WebApplication app)

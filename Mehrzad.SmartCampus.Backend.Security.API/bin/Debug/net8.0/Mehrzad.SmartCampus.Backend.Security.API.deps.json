@@ -11,8 +11,7 @@
           "Mehrzad.SmartCampus.Backend.API.Infrastructure": "1.0.0",
           "Mehrzad.SmartCampus.Backend.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.18",
-          "Microsoft.EntityFrameworkCore.Design": "9.0.8",
-          "Swashbuckle.AspNetCore": "6.6.2"
+          "Microsoft.EntityFrameworkCore.Design": "9.0.8"
         },
         "runtime": {
           "Mehrzad.SmartCampus.Backend.Security.API.dll": {}
