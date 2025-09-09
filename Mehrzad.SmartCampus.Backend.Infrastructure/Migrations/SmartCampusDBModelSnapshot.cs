@@ -38,8 +38,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("AttendanceId");
 
@@ -59,8 +60,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("FacultyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FacultyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
@@ -93,8 +95,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("FacultyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FacultyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -119,8 +122,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("EnrollmentId");
 
@@ -143,8 +147,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("OrganizerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("OrganizerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -159,9 +164,8 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Faculty", b =>
                 {
-                    b.Property<Guid>("FacultyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FacultyId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Department")
                         .IsRequired()
@@ -201,9 +205,8 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
 
             modelBuilder.Entity("Mehrzad.SmartCampus.Backend.Core.Entities.Student", b =>
                 {
-                    b.Property<Guid>("StudentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");

@@ -12,7 +12,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
         public DateTime EnrollmentDate { get; set; } = DateTime.Now;
 
         // Foreign Keys
-        public Guid StudentId { get; set; }
+        public required string StudentId { get; set; }
         public required Student Student { get; set; }
 
         public Guid CourseId { get; set; }

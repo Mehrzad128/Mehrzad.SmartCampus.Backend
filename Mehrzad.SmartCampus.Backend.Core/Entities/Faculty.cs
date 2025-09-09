@@ -8,7 +8,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
     public class Faculty
     {
-        public Guid FacultyId { get; set; } = Guid.NewGuid();
+        public required string FacultyId { get; set; } 
         public required string Department { get; set; } 
 
         // Foreign Key

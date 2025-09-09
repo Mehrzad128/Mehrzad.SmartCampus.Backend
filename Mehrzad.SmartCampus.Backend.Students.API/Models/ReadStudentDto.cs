@@ -1,7 +1,7 @@
 ﻿namespace Mehrzad.SmartCampus.Backend.Students.API.Models
 {
-    public record StudentReadDto(
-        Guid StudentId,
+    public record ReadStudentDto(
+        string StudentId,
         Guid UserId,
         string Name,
         string Email,

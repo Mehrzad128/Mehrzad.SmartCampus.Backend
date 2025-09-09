@@ -1,11 +1,14 @@
 using Api.Admin.Handlers;
 using Mehrzad.SmartCampus.Backend.API.Infrastructure;
 using Mehrzad.SmartCampus.Backend.Security.API.DTOs;
+using Mehrzad.SmartCampus.Backend.Security.API.Handlers;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 AppConfiguration.AddServices(builder);
 builder.Services.AddScoped<LoginHandler>();
+builder.Services.AddScoped<RegisterHandler>();
 var app = builder.Build();
 AppConfiguration.UseServices(app);
 
@@ -24,6 +27,16 @@ app.MapPost("/verify-mfa", async (MfaDto dto, LoginHandler handler) =>
     var token = await handler.VerifyMfaAsync(dto);
     return token is null ? Results.Unauthorized() : Results.Ok(new { token });
 });
+
+app.MapPost("/register",
+    async (RegisterDto dto, [FromServices] RegisterHandler handler) =>
+    {
+        var token = await handler.HandleAsync(dto);
+        if (token is null)
+            return Results.BadRequest(new { message = "Registration failed" });
+
+        return Results.Ok(new AuthResponseDto(token));
+    });
 
 //===============================================================================================
 

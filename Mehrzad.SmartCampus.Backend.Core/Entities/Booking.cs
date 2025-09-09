@@ -18,7 +18,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
         public Guid RoomId { get; set; }
         public Room Room { get; set; } = null!;
 
-        public Guid FacultyId { get; set; }
+        public required string FacultyId { get; set; }
         public Faculty Faculty { get; set; } = null!;
     }
 }

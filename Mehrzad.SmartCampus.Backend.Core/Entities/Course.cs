@@ -14,7 +14,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
         public int Credits { get; set; }
 
         // Foreign Key
-        public Guid FacultyId { get; set; }
+        public required string FacultyId { get; set; }
         public required Faculty Faculty { get; set; } 
 
         // Navigation

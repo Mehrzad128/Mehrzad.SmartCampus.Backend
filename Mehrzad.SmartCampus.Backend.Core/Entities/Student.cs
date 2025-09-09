@@ -8,12 +8,12 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
 {
     public class Student
     {
-        public Guid StudentId { get; set; } = Guid.NewGuid();
+        public required string StudentId { get; set; } 
         public DateTime EnrollmentDate { get; set; } = DateTime.Now;
 
         // Foreign Key
         public Guid UserId { get; set; }
-        public required User User { get; set; } 
+        public User User { get; set; } = null!;
 
         // Navigation
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();

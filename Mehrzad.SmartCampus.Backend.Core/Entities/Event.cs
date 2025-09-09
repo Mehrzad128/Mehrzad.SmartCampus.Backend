@@ -14,7 +14,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
         public DateTime Date { get; set; }
 
         // Foreign Key
-        public Guid OrganizerId { get; set; }
+        public required string OrganizerId { get; set; }
         public required Faculty Organizer { get; set; } 
     }
 }

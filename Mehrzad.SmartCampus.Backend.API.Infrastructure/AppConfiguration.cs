@@ -58,7 +58,6 @@ namespace Mehrzad.SmartCampus.Backend.API.Infrastructure
                 options.AddPolicy("AdminAccessLevel", policy => policy.RequireRole("Admin"));
                 options.AddPolicy("FacultyAccessLevel", policy => policy.RequireRole("Faculty", "Admin"));
                 options.AddPolicy("StudentAccessLevel", policy => policy.RequireRole("Student", "Admin"));
-                options.AddPolicy("FreeAccessLevel", policy => policy.RequireRole("Student" , "Faculty" , "Admin"));
             });
             builder.Services.AddScoped<IPasswordService, MicrosoftPasswordService>();
             builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();

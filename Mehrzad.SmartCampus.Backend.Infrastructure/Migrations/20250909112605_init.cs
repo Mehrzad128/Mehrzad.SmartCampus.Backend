@@ -33,7 +33,9 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    PendingOtp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OtpExpiry = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,7 +46,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                 name: "Faculties",
                 columns: table => new
                 {
-                    FacultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FacultyId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Department = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -63,7 +65,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -87,7 +89,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     TimeSlot = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     RoomId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FacultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FacultyId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,7 +116,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Credits = table.Column<int>(type: "int", nullable: false),
-                    FacultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FacultyId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -135,7 +137,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OrganizerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    OrganizerId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -155,7 +157,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                     AttendanceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -181,7 +183,7 @@ namespace Mehrzad.SmartCampus.Backend.Infrastructure.Migrations
                 {
                     EnrollmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

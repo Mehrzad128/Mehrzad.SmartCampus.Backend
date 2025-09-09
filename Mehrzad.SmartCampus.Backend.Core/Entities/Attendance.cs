@@ -14,7 +14,7 @@ namespace Mehrzad.SmartCampus.Backend.Core.Entities
         public string Status { get; set; } = null!; // Present, Absent, Late
 
         // Foreign Keys
-        public Guid StudentId { get; set; }
+        public required string StudentId { get; set; }
         public required Student Student { get; set; } 
 
         public required Guid CourseId { get; set; }
