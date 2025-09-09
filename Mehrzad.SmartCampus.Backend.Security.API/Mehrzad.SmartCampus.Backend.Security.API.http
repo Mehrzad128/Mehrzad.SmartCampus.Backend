@@ -1,6 +1,6 @@
-@Mehrzad.SmartCampus.Backend.Security.API_HostAddress = http://localhost:5116
+@Mehrzad.SmartCampus.Backend.Security.API_HostAddress = http://localhost:60128
 
-GET {{Mehrzad.SmartCampus.Backend.Security.API_HostAddress}}/weatherforecast/
+POST {{Mehrzad.SmartCampus.Backend.Security.API_HostAddress}}/login/
 Accept: application/json
 
 ###
