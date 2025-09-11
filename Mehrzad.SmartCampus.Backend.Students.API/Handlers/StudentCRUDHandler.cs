@@ -61,7 +61,7 @@ namespace Mehrzad.SmartCampus.Backend.Students.API.Handlers
         }
 
         // READ (role-aware)
-        public async Task<Student?> GetAsync(Guid id, ClaimsPrincipal currentUser, CancellationToken ct = default)
+        public async Task<ReadStudentDto?> GetAsync(Guid id, ClaimsPrincipal currentUser, CancellationToken ct = default)
         {
             var role = currentUser.FindFirstValue(ClaimTypes.Role);
             var currentUserId = currentUser.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -72,7 +72,14 @@ namespace Mehrzad.SmartCampus.Backend.Students.API.Handlers
 
             return await _db.Students
                 .Include(s => s.User)
-                .FirstOrDefaultAsync(s => s.UserId == id, ct);
+                .Where(s => s.UserId == id)
+                .Select(s => new ReadStudentDto(
+                s.StudentId,
+                s.User.UserId,
+                s.User.Name,
+                s.User.Email,
+                s.EnrollmentDate))
+                .FirstOrDefaultAsync(ct);
         }
 
         // UPDATE
@@ -108,5 +115,4 @@ namespace Mehrzad.SmartCampus.Backend.Students.API.Handlers
             return true;
         }
     }
-
 }

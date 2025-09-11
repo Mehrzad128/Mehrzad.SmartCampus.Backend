@@ -14,7 +14,7 @@ var app = builder.Build();
 AppConfiguration.UseServices(app);
 
 // List of every student in the system (Admin only)
-app.MapGet("/students", async (
+app.MapGet("/admin/students", async (
     [FromServices] StudentCrudHandler h) =>
 {
     var list = await h.GetAllAsync();
