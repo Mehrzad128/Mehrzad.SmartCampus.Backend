@@ -16,26 +16,26 @@ AppConfiguration.UseServices(app);
 
 app.MapPost("/login", async (LoginDto dto, [FromServices] LoginHandler handler) =>
 {
-    var (requiresMfa, token) = await handler.HandleLoginAsync(dto);
-    if (token is null && !requiresMfa) return Results.Unauthorized();
-    if (requiresMfa) return Results.Ok(new { requiresMfa = true });
-    return Results.Ok(new { token });
+    var (requiresMfa, response) = await handler.HandleLoginAsync(dto);
+    if (response is null && !requiresMfa) return Results.Unauthorized();
+    if (requiresMfa) return Results.Ok(new { requiresMfa = true , role="Admin" });
+    return Results.Ok(response);
 });
 
 app.MapPost("/verify-mfa", async (MfaDto dto, LoginHandler handler) =>
 {
-    var token = await handler.VerifyMfaAsync(dto);
-    return token is null ? Results.Unauthorized() : Results.Ok(new { token });
+    var response = await handler.VerifyMfaAsync(dto);
+    return response is null ? Results.Unauthorized() : Results.Ok(response);
 });
 
 app.MapPost("/register",
     async (RegisterDto dto, [FromServices] RegisterHandler handler) =>
     {
-        var token = await handler.HandleAsync(dto);
-        if (token is null)
+        var response = await handler.HandleAsync(dto);
+        if (response is null)
             return Results.BadRequest(new { message = "Registration failed" });
 
-        return Results.Ok(new AuthResponseDto(token));
+        return Results.Ok(new AuthResponseDto(response));
     });
 
 //===============================================================================================

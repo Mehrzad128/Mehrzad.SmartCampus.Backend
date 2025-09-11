@@ -19,7 +19,7 @@ namespace Api.Admin.Handlers
             _jwtGenerator = jwtGenerator;
         }
 
-        public async Task<(bool RequiresMfa, string? Token)> HandleLoginAsync(LoginDto dto)
+        public async Task<(bool RequiresMfa, LoginResponseDto? Response)> HandleLoginAsync(LoginDto dto)
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null || !_passwordService.VerifyPassword(dto.Password, user.PasswordHash))
@@ -39,10 +39,15 @@ namespace Api.Admin.Handlers
             }
 
             var token = _jwtGenerator.GenerateToken(user);
-            return (false, token);
+            return (false, new LoginResponseDto
+            {
+                Token = token,
+                Role = user.Role.ToString(),
+                RequiresMfa = false
+            });
         }
 
-        public async Task<string?> VerifyMfaAsync(MfaDto dto)
+        public async Task<LoginResponseDto?> VerifyMfaAsync(MfaDto dto)
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null || user.PendingOtp != dto.Otp || user.OtpExpiry < DateTime.UtcNow)
@@ -51,8 +56,13 @@ namespace Api.Admin.Handlers
             user.PendingOtp = null;
             user.OtpExpiry = null;
             await _db.SaveChangesAsync();
-
-            return _jwtGenerator.GenerateToken(user);
+            var token = _jwtGenerator.GenerateToken(user);
+            return new LoginResponseDto
+            {
+                RequiresMfa = false,
+                Token = token,
+                Role = user.Role.ToString()
+            };
         }
     }
 }
