@@ -13,3 +13,4 @@ F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Ba
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Infrastructure\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Infrastructure.pdb
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Infrastructure\obj\Debug\net8.0\ref\Mehrzad.SmartCampus.Backend.Infrastructure.dll
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Infrastructure\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Infrastructure.csproj.CopyComplete
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Infrastructure\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Infrastructure.sourcelink.json

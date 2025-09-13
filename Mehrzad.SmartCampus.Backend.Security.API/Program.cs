@@ -2,6 +2,7 @@ using Api.Admin.Handlers;
 using Mehrzad.SmartCampus.Backend.API.Infrastructure;
 using Mehrzad.SmartCampus.Backend.Security.API.DTOs;
 using Mehrzad.SmartCampus.Backend.Security.API.Handlers;
+using Mehrzad.SmartCampus.Backend.Security.API.Middlewares;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -11,6 +12,7 @@ builder.Services.AddScoped<LoginHandler>();
 builder.Services.AddScoped<RegisterHandler>();
 var app = builder.Build();
 AppConfiguration.UseServices(app);
+app.UseMiddleware<ExceptionMiddleware>();
 
 //===============================================================================================
 

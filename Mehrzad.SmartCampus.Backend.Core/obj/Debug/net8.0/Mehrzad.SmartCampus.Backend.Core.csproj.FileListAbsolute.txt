@@ -9,3 +9,4 @@ F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Ba
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\refint\Mehrzad.SmartCampus.Backend.Core.dll
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.pdb
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\ref\Mehrzad.SmartCampus.Backend.Core.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Core\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Core.sourcelink.json

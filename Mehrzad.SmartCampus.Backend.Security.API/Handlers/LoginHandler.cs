@@ -1,8 +1,10 @@
 ﻿using Mehrzad.SmartCampus.Backend.API.Infrastructure;
+using Mehrzad.SmartCampus.Backend.Core.Exceptions;
 using Mehrzad.SmartCampus.Backend.Infrastructure.Database;
 using Mehrzad.SmartCampus.Backend.Security.API.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Text.RegularExpressions;
 
 namespace Api.Admin.Handlers
 {
@@ -21,9 +23,24 @@ namespace Api.Admin.Handlers
 
         public async Task<(bool RequiresMfa, LoginResponseDto? Response)> HandleLoginAsync(LoginDto dto)
         {
+
+            var errors = new Dictionary<string, string[]>();
+
+            if (string.IsNullOrWhiteSpace(dto.Email))
+                errors["Email"] = new[] { "Email is required." };
+            else if (!Regex.IsMatch(dto.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                errors["Email"] = new[] { "Invalid email format." };
+
+            if (string.IsNullOrWhiteSpace(dto.Password))
+                errors["Password"] = new[] { "Password is required." };
+
+            if (errors.Any())
+                throw new ValidationException(errors);
+
+
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null || !_passwordService.VerifyPassword(dto.Password, user.PasswordHash))
-                return (false, null);
+                throw new AuthenticationException("No user found");
 
             if (user.Role.ToString() == "Admin")
             {
