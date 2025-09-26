@@ -4,7 +4,10 @@ using Mehrzad.SmartCampus.Backend.Security.API.DTOs;
 using Mehrzad.SmartCampus.Backend.Security.API.Handlers;
 using Mehrzad.SmartCampus.Backend.Security.API.Middlewares;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 AppConfiguration.AddServices(builder);
@@ -39,6 +42,11 @@ app.MapPost("/register",
 
         return Results.Ok(new AuthResponseDto(response));
     });
+
+app.MapGet("/token/validate", (HttpContext ctx) =>
+    ValidateTokenHandler.Handle(ctx))
+   .AllowAnonymous(); // allow anonymous so frontend can call it even if token is invalid
+
 
 //===============================================================================================
 

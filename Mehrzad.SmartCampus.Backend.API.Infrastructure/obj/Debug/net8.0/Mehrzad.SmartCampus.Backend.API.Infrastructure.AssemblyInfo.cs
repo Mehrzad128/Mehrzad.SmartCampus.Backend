@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mehrzad.SmartCampus.Backend.API.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbcc88dda0aab581ad086bceecd50a6885e928e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fb92f7b58228444cc4139d396dd5dbcfd6c2502")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mehrzad.SmartCampus.Backend.API.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mehrzad.SmartCampus.Backend.API.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

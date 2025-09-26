@@ -22,8 +22,13 @@ namespace Mehrzad.SmartCampus.Backend.API.Infrastructure
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddCors(options =>
-                options.AddDefaultPolicy(builder =>
-                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+            {
+                options.AddPolicy("AllowFrontend", p =>
+                p.WithOrigins(builder.Configuration["Frontend:Url"] ?? "http://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials());
+            });
 
             builder.Services.AddDbContext<SmartCampusDB>(option =>
             {
@@ -71,7 +76,7 @@ namespace Mehrzad.SmartCampus.Backend.API.Infrastructure
             }
 
             app.UseHttpsRedirection();
-            app.UseCors();
+            app.UseCors("AllowFrontend");
             app.UseAuthentication();
             app.UseAuthorization();
         }
