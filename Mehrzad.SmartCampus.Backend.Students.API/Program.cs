@@ -3,9 +3,6 @@ using Mehrzad.SmartCampus.Backend.Students.API.Models;
 using System.Security.Claims;
 using Mehrzad.SmartCampus.Backend.Students.API.Handlers;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using Mehrzad.SmartCampus.Backend.Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 AppConfiguration.AddServices(builder);
@@ -14,10 +11,11 @@ var app = builder.Build();
 AppConfiguration.UseServices(app);
 
 // List of every student in the system (Admin only)
-app.MapGet("/admin/students", async (
+app.MapGet("/admin/students/{page}", async (
+    int page ,
     [FromServices] StudentCrudHandler h) =>
 {
-    var list = await h.GetAllAsync();
+    var list = await h.GetAllAsync(page);
     return Results.Ok(list);
 })
 .RequireAuthorization("AdminAccessLevel");

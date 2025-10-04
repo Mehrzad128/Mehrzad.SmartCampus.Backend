@@ -92,3 +92,4 @@ F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Ba
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Students.API\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Students.API.pdb
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Students.API\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Students.API.genruntimeconfig.cache
 F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Students.API\obj\Debug\net8.0\ref\Mehrzad.SmartCampus.Backend.Students.API.dll
+F:\mehrzad programing files\Fullstack\Mehrzad.SmartCampus\Mehrzad.SmartCampus.Backend\Mehrzad.SmartCampus.Backend.Students.API\obj\Debug\net8.0\Mehrzad.SmartCampus.Backend.Students.API.sourcelink.json

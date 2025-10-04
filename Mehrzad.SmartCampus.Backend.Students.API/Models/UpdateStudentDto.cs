@@ -5,6 +5,5 @@
     string Password,
     string Name,
     string StudentId
-);
-
+    );
 }

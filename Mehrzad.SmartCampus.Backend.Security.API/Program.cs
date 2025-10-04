@@ -47,7 +47,6 @@ app.MapGet("/token/validate", (HttpContext ctx) =>
     ValidateTokenHandler.Handle(ctx))
    .AllowAnonymous(); // allow anonymous so frontend can call it even if token is invalid
 
-
 //===============================================================================================
 
 app.Run();

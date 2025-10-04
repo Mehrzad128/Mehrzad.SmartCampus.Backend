@@ -20,9 +20,11 @@ namespace Mehrzad.SmartCampus.Backend.Students.API.Handlers
         }
 
         // LIST
-        public async Task<List<ReadStudentDto>> GetAllAsync(CancellationToken ct = default)
+        public async Task<List<ReadStudentDto>> GetAllAsync(int page , CancellationToken ct = default)
         {
             return await _db.Students
+                .Skip(16 * page)
+                .Take(16)
                 .Include(s => s.User)
                 .Select(s => new ReadStudentDto(
                 s.StudentId,
